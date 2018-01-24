@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<databaseConfiguration>
+		<databaseServerAddress>127.0.0.1</databaseServerAddress>
+		<databasePort>5432</databasePort>
+		<databaseName>dummy</databaseName>
+		<databaseUserName>postgres</databaseUserName>
+		<databasePassword>abc@123</databasePassword>
+	</databaseConfiguration>
+	<logConfigurationFilePath>./log_config.xml</logConfigurationFilePath>
+</configuration>
