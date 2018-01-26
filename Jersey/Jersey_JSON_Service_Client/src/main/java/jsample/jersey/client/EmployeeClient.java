@@ -13,7 +13,7 @@ import jsample.jersey.model.Employee;
 
 public class EmployeeClient {
 
-	private static final String SERVER_URL = "http://localhost:8080/Jersey_JSON_Service/rest";
+	private static final String SERVER_URL = "http://localhost:8080/Jersey_Json_Service/rest";
 
 	private static final String API_PATH = "employee";
 

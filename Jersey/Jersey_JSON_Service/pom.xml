@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jsample.jersey</groupId>
-	<artifactId>Jersey_JSON_Service</artifactId>
+	<artifactId>Jersey_Json_Service</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
 
@@ -67,6 +67,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>Jersey_JSON_Service</finalName>
+		<finalName>Jersey_Json_Service</finalName>
 	</build>
 </project>
