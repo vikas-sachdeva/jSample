@@ -2,6 +2,12 @@ package jsample;
 
 import java.util.logging.Logger;
 
+/*
+ * Java Logging configuration file path can be specified using VM arguments for customizing logging - 
+ * 
+ * -Djava.util.logging.config.file="./config/log_config.properties" 
+ *
+ */
 public class App {
 	private static final Logger LOGGER = Logger.getLogger(App.class.getName());
 
