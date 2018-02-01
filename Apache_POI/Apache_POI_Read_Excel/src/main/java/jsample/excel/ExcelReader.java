@@ -23,7 +23,11 @@ public class ExcelReader {
 		 * object allows for lower memory consumption, while an InputStream requires
 		 * more memory as it has to buffer the whole file.
 		 */
-		try (Workbook workbook = WorkbookFactory.create(new File(excelFilePath))) {
+		/**
+		 * Open the workbook as readonly for avoiding changes in modified timestamp
+		 * while calling workbook.close()
+		 */
+		try (Workbook workbook = WorkbookFactory.create(new File(excelFilePath), null, true)) {
 			for (int sheetNum = 0; sheetNum < workbook.getNumberOfSheets(); sheetNum++) {
 				Sheet sheet = workbook.getSheetAt(sheetNum);
 				System.out.println("-----------Sheet " + sheet.getSheetName() + " Data-----------");

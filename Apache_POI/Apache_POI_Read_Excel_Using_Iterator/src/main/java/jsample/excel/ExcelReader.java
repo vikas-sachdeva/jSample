@@ -47,7 +47,11 @@ public class ExcelReader {
 		 * object allows for lower memory consumption, while an InputStream requires
 		 * more memory as it has to buffer the whole file.
 		 */
-		try (Workbook workbook = WorkbookFactory.create(new File(excelFilePath))) {
+		/**
+		 * Open the workbook as readonly for avoiding changes in modified timestamp
+		 * while calling workbook.close()
+		 */
+		try (Workbook workbook = WorkbookFactory.create(new File(excelFilePath), null, true)) {
 			Iterator<Sheet> iterator = workbook.sheetIterator();
 			while (iterator.hasNext()) {
 				Sheet sheet = iterator.next();
@@ -83,7 +87,7 @@ public class ExcelReader {
 			 * In this case, this method will also return 9:20 as value, skipping seconds
 			 * information.
 			 */
-//			 System.out.print(new DataFormatter().formatCellValue(cell));
+			// System.out.print(new DataFormatter().formatCellValue(cell));
 			/**
 			 * Alternatively, get the value based on the type of data a cell contains and
 			 * format it as per the need.
