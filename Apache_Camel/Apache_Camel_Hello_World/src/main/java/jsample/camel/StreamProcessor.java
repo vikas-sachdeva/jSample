@@ -9,7 +9,7 @@ public class StreamProcessor implements Processor {
 	public void process(Exchange exchange) throws Exception {
 		String requestBody = (String) exchange.getIn().getBody();
 		// Get Request Body and prepend our message and then send it to output component
-		String newRequestBody = "Camel - " + requestBody;
-		exchange.getOut().setBody(newRequestBody);
+		String responseBody = "Camel - " + requestBody;
+		exchange.getOut().setBody(responseBody);
 	}
 }
