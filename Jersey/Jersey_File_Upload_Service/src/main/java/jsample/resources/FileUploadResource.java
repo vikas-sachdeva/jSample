@@ -18,6 +18,15 @@ import org.glassfish.jersey.media.multipart.FormDataParam;
 @Path("/upload")
 public class FileUploadResource {
 
+	/**
+	 * 
+	 * Curl command for testing this API -
+	 * 
+	 * curl -v -F "file=@myFile.PNG" -F "fileDescription=file for testing"
+	 * http://localhost:8080/Jersey_File_Upload_Service/rest/upload/file
+	 * 
+	 */
+
 	public static final String UPLOAD_DIR_PATH = "D:/temp/";
 
 	@POST
