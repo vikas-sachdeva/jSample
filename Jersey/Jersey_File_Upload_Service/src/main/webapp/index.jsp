@@ -9,7 +9,7 @@
 	<h1>Jersey File Upload Service</h1>
 
 	<form action="rest/upload/file" method="post"
-		enctype="multipart/form-data">
+		enctype="multipart/form-data" >
 
 		<p>
 			Select a file : <input type="file" name="file" size="45" />

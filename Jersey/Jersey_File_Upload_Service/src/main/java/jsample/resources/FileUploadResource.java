@@ -2,13 +2,16 @@ package jsample.resources;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -34,9 +37,12 @@ public class FileUploadResource {
 	@Consumes({ MediaType.MULTIPART_FORM_DATA })
 	public Response uploadFile(@FormDataParam("file") InputStream fileInputStream,
 			@FormDataParam("file") FormDataContentDisposition fileMetaData,
-			@FormDataParam("fileDescription") String fileDescription) throws Exception {
+			@FormDataParam("fileDescription") String fileDescription, @Context HttpServletRequest request)
+			throws Exception {
+
 		try {
-			String fileName = fileMetaData.getFileName();
+			String temp = fileMetaData.getFileName();
+			String fileName = new String(temp.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
 			Files.copy(fileInputStream, Paths.get(UPLOAD_DIR_PATH + fileName), StandardCopyOption.REPLACE_EXISTING);
 		} catch (IOException e) {
 			e.printStackTrace();
