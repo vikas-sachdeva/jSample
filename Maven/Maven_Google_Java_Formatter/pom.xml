@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>jsample</groupId>
+	<artifactId>Maven_Google_Java_Formatter</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>9</maven.compiler.source>
+		<maven.compiler.target>9</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Plugin for formatting code using google java format which follows 
+				Google's code style guide -->
+			<!-- Execute plugin using `mvn com.coveo:fmt-maven-plugin:format` command -->
+			<!-- Execute plugin in debug mode using `mvn com.coveo:fmt-maven-plugin:format 
+				-Dverbose=true` command -->
+			<plugin>
+				<groupId>com.coveo</groupId>
+				<artifactId>fmt-maven-plugin</artifactId>
+				<version>2.3.0</version>
+				<configuration>
+					<sourceDirectory>src/main/java</sourceDirectory>
+					<testSourceDirectory>src/test/java</testSourceDirectory>
+					<verbose>true</verbose>
+					<!-- Specify file name pattern for formatting -->
+					<filesNamePattern>.*\.java</filesNamePattern>
+					<!-- Specify additional source directory, if any -->
+				</configuration>
+				<!-- Format code in each build -->
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<!-- Fail build if code has non-complying files. -->
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
