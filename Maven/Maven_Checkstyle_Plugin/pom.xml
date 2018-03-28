@@ -23,12 +23,18 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
 				<version>3.0.0</version>
+				<configuration>
+					<propertyExpansion>checkStyleDir=${basedir}/src/main/checkstyle/</propertyExpansion>
+					<!-- Use custom config file -->
+					<configLocation>${basedir}/src/main/checkstyle/checkstyle.xml</configLocation>
+					<!-- Use Google check sheet. Only one file is currently supported. -->
+					<!-- <configLocation>google_checks.xml</configLocation> -->
+				</configuration>
 				<executions>
 					<execution>
 						<id>validate</id>
 						<phase>verify</phase>
 						<configuration>
-							<configLocation>google_checks.xml</configLocation>
 							<encoding>UTF-8</encoding>
 							<consoleOutput>true</consoleOutput>
 							<failsOnError>true</failsOnError>

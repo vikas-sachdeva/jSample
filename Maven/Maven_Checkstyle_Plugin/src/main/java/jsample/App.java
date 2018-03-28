@@ -1,3 +1,7 @@
+/*
+ * This is the license statement.
+ * Put it on top of each source file. 
+ */
 package jsample;
 
 public class App {
